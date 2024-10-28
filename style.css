@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e0f7fa; /* Light blue background */
+    font-family: Arial, sans-serif;
+    position: relative; /* Allow absolute positioning of emoji */
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background: #ffffff; /* White background for the card */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    position: relative; /* For stacking context */
+    z-index: 1; /* Ensure card is above the emoji */
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    color: #00796b; /* Teal color for the heading */
+}
+
+.card p {
+    margin-bottom: 20px;
+    color: #555555; /* Dark gray color for the paragraph text */
+}
+
+/* Emoji styles */
+.emoji {
+    position: absolute;
+    font-size: 2rem; /* Size of the emoji */
+    animation: move 10s infinite alternate; /* Animation */
+}
+
+/* Keyframes for emoji movement */
+@keyframes move {
+    0% {
+        transform: translate(0, 0); /* Start position */
+    }
+    25% {
+        transform: translate(calc(100vw - 2rem), calc(100vh - 2rem)); /* Move to bottom right */
+    }
+    50% {
+        transform: translate(calc(-100vw + 2rem), calc(100vh - 2rem)); /* Move to bottom left */
+    }
+    75% {
+        transform: translate(calc(100vw - 2rem), calc(-100vh + 2rem)); /* Move to top right */
+    }
+    100% {
+        transform: translate(calc(-100vw + 2rem), calc(-100vh + 2rem)); /* Move to top left */
+    }
+}
